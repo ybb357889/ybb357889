@@ -1,0 +1,15 @@
+# ===== Claude Code =====
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN,api.anthropic.com
+
+# ===== OpenAI Codex =====
+DOMAIN-SUFFIX,openai.com
+DOMAIN,api.openai.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+
+# ===== 宽松兜底 =====
+DOMAIN-KEYWORD,claude
+DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,openai
