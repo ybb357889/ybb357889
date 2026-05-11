@@ -9,9 +9,11 @@ DOMAIN,api.openai.com
 DOMAIN-SUFFIX,oaistatic.com
 DOMAIN-SUFFIX,oaiusercontent.com
 DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,sora.com
 
 # ===== 宽松兜底 =====
 DOMAIN-KEYWORD,claude
 DOMAIN-KEYWORD,anthropic
 DOMAIN-KEYWORD,openai
 DOMAIN-KEYWORD,chatgpt
+DOMAIN-KEYWORD,sora
