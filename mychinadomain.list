@@ -27,6 +27,44 @@ DOMAIN-SUFFIX,windowsupdate.com
 DOMAIN-SUFFIX,bing.com
 DOMAIN-SUFFIX,bing.net
 
+# ----- 微软全系直连（2026-09-17 按需求改为全部直连）-----
+# 实测直连：login.live.com 200/0.7s、ecs.office.com 503/0.46s、oneocsp.microsoft.com 404/0.89s
+# 注意：此项会让 Copilot / 国际版 M365 / OneDrive 一并直连；
+#       Linkedin(linkedin.com) 与 GitHub 虽属微软但在国内不可直连，故意不列入
+DOMAIN-SUFFIX,microsoft.com
+DOMAIN-SUFFIX,microsoft.net
+DOMAIN-SUFFIX,microsoftonline.com
+DOMAIN-SUFFIX,microsoftonline-p.com
+DOMAIN-SUFFIX,microsoft365.com
+DOMAIN-SUFFIX,microsofttranslator.com
+DOMAIN-SUFFIX,microsoftapp.net
+DOMAIN-SUFFIX,s-microsoft.com
+DOMAIN-SUFFIX,office.com
+DOMAIN-SUFFIX,office.net
+DOMAIN-SUFFIX,office365.com
+DOMAIN-SUFFIX,sharepoint.com
+DOMAIN-SUFFIX,sharepointonline.com
+DOMAIN-SUFFIX,onedrive.com
+DOMAIN-SUFFIX,live.com
+DOMAIN-SUFFIX,live.net
+DOMAIN-SUFFIX,outlook.com
+DOMAIN-SUFFIX,hotmail.com
+DOMAIN-SUFFIX,msn.com
+DOMAIN-SUFFIX,windows.com
+DOMAIN-SUFFIX,msftconnecttest.com
+DOMAIN-SUFFIX,msftncsi.com
+DOMAIN-SUFFIX,msftidentity.com
+DOMAIN-SUFFIX,msecnd.net
+DOMAIN-SUFFIX,msedge.net
+DOMAIN-SUFFIX,skype.com
+DOMAIN-SUFFIX,aka.ms
+DOMAIN-SUFFIX,clarity.ms
+DOMAIN-SUFFIX,exp-tas.com
+DOMAIN-SUFFIX,nuget.org
+DOMAIN-SUFFIX,visualstudio.com
+DOMAIN-SUFFIX,vsassets.io
+DOMAIN-SUFFIX,windowsazure.com
+
 # ----- DeepSeek -----
 DOMAIN,api.deepseek.com
 DOMAIN-SUFFIX,deepseek.com
@@ -51,24 +89,15 @@ DOMAIN,cn.archive.ubuntu.com
 DOMAIN-SUFFIX,happyporsche.com
 
 # ============================================================
-# 以下是「国内能访问但解析到境外 IP」的域名（走代理 vs 直连需自己权衡）
-# 默认注释掉，需要时取消注释即可（改完记得更新订阅）
+# 以下保持注释，需要时取消注释（改完记得更新订阅）
 # ------------------------------------------------------------
-# 微软系：会让 Copilot / 国际版 M365 / OneDrive 也直连，重度用户慎开
-#DOMAIN-SUFFIX,microsoft.com
-#DOMAIN-SUFFIX,microsoft.net
-#DOMAIN-SUFFIX,office.com
-#DOMAIN-SUFFIX,office.net
-#DOMAIN-SUFFIX,sharepoint.com
-#DOMAIN-SUFFIX,live.com
-#DOMAIN-SUFFIX,msn.com
-#DOMAIN-SUFFIX,microsoftonline.com
-#DOMAIN-SUFFIX,msftconnecttest.com
-#DOMAIN-SUFFIX,msftncsi.com
-# Home Assistant 系（Cloudflare，国内访问不佳，一般不建议直连）
+# Home Assistant 系（Cloudflare，国内直连不佳）
 #DOMAIN-SUFFIX,home-assistant.io
 #DOMAIN-SUFFIX,hacs.xyz
 # 其它
 #DOMAIN-SUFFIX,razersynapse.com
 #DOMAIN-SUFFIX,snapcraft.io
 #DOMAIN-SUFFIX,wireguard.com
+# Azure 通用域名：托管大量第三方内容，不建议直连
+#DOMAIN-SUFFIX,azure.com
+#DOMAIN-SUFFIX,azureedge.net
