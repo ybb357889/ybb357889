@@ -1,11 +1,74 @@
-DOMAIN-SUFFIX,huoxiaoyi.com
-DOMAIN-SUFFIX,91miaoshou.com
-DOMAIN-SUFFIX,byang.com.cn
+# ============================================================
+# 自定义强制直连域名清单
+# 由 nodnsleak.ini 模板注入为 DIRECT 规则，位置在 GEOIP,CN 之前
+# 只放「必须显式直连」的域名；能靠 GEOIP,CN 自动判定的不必重复
+# 更新后需在 OpenClash 里手动点一次「更新订阅」才生效
+# ============================================================
+
+# ----- 自有域名（geosite:cn 不收录，必须手动，勿删）-----
+# dsh.byang.cn 指向家宽公网 IP，必须直连，否则远程访问会绕美国节点形成 hairpin
 DOMAIN-SUFFIX,byang.cn
+DOMAIN-SUFFIX,byang.com.cn
+
+# ----- 妙手 ERP 全系（geosite:cn 已收录，这里显式兜底防上游变动）-----
+# 实测 miaoshou.com / .net / miaoshoucdn.com 均解析到阿里云国内 IP
+DOMAIN-SUFFIX,91miaoshou.com
+DOMAIN-SUFFIX,miaoshou.com
+DOMAIN-SUFFIX,miaoshou.net
+DOMAIN-SUFFIX,miaoshoucdn.com
+DOMAIN-SUFFIX,miaoshou.cc
+
+# ----- Windows 更新 / Bing（实测解析到国内 CDN，走代理纯属浪费）-----
+# ctldl.windowsupdate.com -> 124.232.180.99 (中国电信天翼云 *.ctcdn.cn)
+# download.windowsupdate.com -> 175.6.246.130 (国内)
+# www.bing.com -> 202.89.233.100 (微软自有证书，国内节点)
+# ts1.tc.mm.bing.net -> 113.240.66.218 (国内)
+DOMAIN-SUFFIX,windowsupdate.com
+DOMAIN-SUFFIX,bing.com
+DOMAIN-SUFFIX,bing.net
+
+# ----- DeepSeek -----
 DOMAIN,api.deepseek.com
 DOMAIN-SUFFIX,deepseek.com
 DOMAIN-SUFFIX,deepseek.ai
 DOMAIN-KEYWORD,deepseek
+
+# ----- 证书吊销检查 OCSP/CRL（走代理会拖慢每一次 TLS 握手）-----
+# c.pki.goog 实测解析到 58.63.233.98，证书签发者是 Google Trust Services，真实可用
+DOMAIN-SUFFIX,pki.goog
+DOMAIN-SUFFIX,digicert.com
+DOMAIN-SUFFIX,lencr.org
+DOMAIN-SUFFIX,sectigo.com
+DOMAIN-SUFFIX,globalsign.com
+DOMAIN-SUFFIX,verisign.com
+DOMAIN-SUFFIX,comodoca.com
+DOMAIN-SUFFIX,entrust.net
+
+# ----- 其它业务域名 -----
+DOMAIN-SUFFIX,huoxiaoyi.com
 DOMAIN-SUFFIX,tiktokshopglobalselling.com
 DOMAIN,cn.archive.ubuntu.com
 DOMAIN-SUFFIX,happyporsche.com
+
+# ============================================================
+# 以下是「国内能访问但解析到境外 IP」的域名（走代理 vs 直连需自己权衡）
+# 默认注释掉，需要时取消注释即可（改完记得更新订阅）
+# ------------------------------------------------------------
+# 微软系：会让 Copilot / 国际版 M365 / OneDrive 也直连，重度用户慎开
+#DOMAIN-SUFFIX,microsoft.com
+#DOMAIN-SUFFIX,microsoft.net
+#DOMAIN-SUFFIX,office.com
+#DOMAIN-SUFFIX,office.net
+#DOMAIN-SUFFIX,sharepoint.com
+#DOMAIN-SUFFIX,live.com
+#DOMAIN-SUFFIX,msn.com
+#DOMAIN-SUFFIX,microsoftonline.com
+#DOMAIN-SUFFIX,msftconnecttest.com
+#DOMAIN-SUFFIX,msftncsi.com
+# Home Assistant 系（Cloudflare，国内访问不佳，一般不建议直连）
+#DOMAIN-SUFFIX,home-assistant.io
+#DOMAIN-SUFFIX,hacs.xyz
+# 其它
+#DOMAIN-SUFFIX,razersynapse.com
+#DOMAIN-SUFFIX,snapcraft.io
+#DOMAIN-SUFFIX,wireguard.com
